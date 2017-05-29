@@ -1,0 +1,93 @@
+<style>
+    p.vremea{
+        font-size: 20px;
+        color: #2d0fe9;
+    }
+    p.welcome{
+        font-size: 30px;
+        color: #8150f2;
+        text-align: center;
+    }
+    form.findCity{
+        text-align: center;
+        color: #a03df2;
+    }
+    #days{
+        color: #2d0fe9;
+        font-size: 20px;
+    }
+    #forecast{
+        color: #1b2a93;
+    }
+</style>
+<div class = "findCity" ng-controller = "weatherController">
+    <img class = "backgroundImg" src = ""/>
+    <br>
+    <p class = "welcome">Welcome {{username}}</p>
+
+    <br><br>
+    <form action = '/' id = 'weather' class = "findCity">
+        <input type="text" placeholder="Oras" ng-model = "city.cityName"/>
+        <button type = 'button' class = 'btn-success' ng-click = "getWeather()">Cauta Vremea</button>
+    </form>
+    <br>
+    <p class = "vremea">Vremea: {{response.cityName}}</p>
+    <br>
+    <table class="table">
+        <tr id="days">
+            <td><strong>Day 1</strong></td>
+            <td><strong>Day 2</strong></td>
+            <td><strong>Day 3</strong></td>
+            <td><strong>Day 4</strong></td>
+            <td><strong>Day 5</strong></td>
+        </tr>
+        <tr id = "forecast">
+            <td >
+                Temperatura: {{response.forecast[0].temperature}} C<br>
+                Descriere: {{response.forecast[0].weatherDetails.description}}<br>
+                Precipitatii: {{response.forecast[0].weatherDetails.precipitation}}<br>
+                Data: {{response.forecast[0].date}}<br>
+            </td>
+            <td >
+                Temperatura: {{response.forecast[10].temperature}} C<br>
+                Descriere: {{response.forecast[10].weatherDetails.description}}<br>
+                Precipitatii: {{response.forecast[10].weatherDetails.precipitation}}<br>
+                Data: {{response.forecast[10].date}}<br>
+            </td>
+            <td >
+                Temperatura: {{response.forecast[15].temperature}} C<br>
+                Descriere: {{response.forecast[15].weatherDetails.description}}<br>
+                Precipitatii: {{response.forecast[15].weatherDetails.precipitation}}<br>
+                Data: {{response.forecast[15].date}}<br></td>
+            <td >
+                Temperatura: {{response.forecast[20].temperature}} C<br>
+                Descriere: {{response.forecast[20].weatherDetails.description}}<br>
+                Precipitatii: {{response.forecast[20].weatherDetails.precipitation}}<br>
+                Data: {{response.forecast[20].date}}<br></td>
+            <td >
+                Temperatura: {{response.forecast[25].temperature}} C<br>
+                Descriere: {{response.forecast[25].weatherDetails.description}}<br>
+                Precipitatii: {{response.forecast[25].weatherDetails.precipitation}}<br>
+                Data: {{response.forecast[25].date}}<br></td>
+
+        </tr>
+    </table>
+
+    <table class="table">
+        <tr>
+            <td><strong>City Name</strong></td>
+        </tr>
+        <tr ng-repeat="u in userCities">
+            <td>{{u.cityName}}</td>
+            <td>
+                <button type = 'button' class = 'btn-danger' ng-click = "deleteCity(u.cityId)">Delete</button>
+            </td>
+            <td>
+                <button type='button' class = 'btn-warning' ng-click = 'getForecast(u.cityName)'>Get Forecast</button>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+</div>

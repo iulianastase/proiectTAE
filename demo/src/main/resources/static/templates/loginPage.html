@@ -1,0 +1,49 @@
+<style>
+    #loginPage{
+        margin-left: 40%;
+        margin-top: 10%;
+    }
+    #new{
+        margin-left: 40%;
+        margin-top: 5%;
+    }
+    #signIn{
+        font-size: 35px;
+        color: #1b2a93;
+    }
+    #createUser{
+        color : #1b2a93;
+    }
+
+</style>
+<div class="center-div" position = "center" ng-controller = "loginController">
+    <img class = "backgroundImg" src = ""/>
+    <form id = "loginPage">
+        <div class = "container-fluid">
+            <h1 id = "signIn">Sign in</h1>
+            <input type="text" ng-model="username", placeholder = "Username" autofocus/>
+            <br><br>
+            <input type="password" ng-model="password" placeholder = "Password"/>
+            <br><br>
+            <button type= "button" type ="submit" class = "btn-info" ng-click = "ok()">Login</button>
+            </div>
+    </form>
+    <br>
+<div class = "container-fluid">
+
+    <!--<button type = "btn-btn-primary" class = "btn btn-info" data-toggle = "dropdown" data-target="#newUser">Register</button>-->
+    <br><br>
+    <div id = "newUser">
+    <form id ="new">
+        <p><h2 id = "createUser">Create new account</h2></p>
+        <input type="text" ng-model="registerUser.username" placeholder = "Username"/>
+        <br><br>
+        <input type="text" ng-model="registerUser.name" placeholder = "Nume"/>
+        <br><br>
+        <input type="password" ng-model="registerUser.password" placeholder = "Password"/>
+        <button type = "button" type = "submit" class= "btn-primary" ng-click = "register()">Create</button>
+    </form>
+    </div>
+</div>
+</div>
+
